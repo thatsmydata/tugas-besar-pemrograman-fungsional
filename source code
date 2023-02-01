@@ -1,0 +1,26 @@
+import streamlit as st
+import itertools
+
+# fungsi untuk menghitung harga total dari sebuah barang
+def calculate_total_price(price, quantity):
+    return price * quantity
+
+def main():
+    st.title("Aplikasi Penjualan Barang")
+
+    # mengambil input nama barang, harga, dan jumlah dari pengguna
+    item_name = st.text_input("Nama Barang: ")
+    item_price = st.number_input("Harga Barang: ")
+    item_quantity = st.number_input("Jumlah: ")
+
+    # menghitung harga total dengan menggunakan high-order function map()
+    total_price = calculate_total_price(item_price, item_quantity)
+    st.write("Harga Total: ", total_price)
+
+    # menampilkan barang yang tersedia
+    available_items = {'Minyak Goreng': 100, 'Mie Instant': 200, 'Kacang Hijau': 300}
+    st.write("Barang yang tersedia: ")
+    st.write(available_items)
+
+if _name_ == '_main_':
+    main()
